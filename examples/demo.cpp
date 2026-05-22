@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "mystl/vector.h"
+#include "mystl/string.h"
 
 int main() {
     mystl::vector<int> vec;
@@ -12,6 +13,9 @@ int main() {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
+
+    mystl::string str = "Hello, MySTL!";
+    std::cout << str.c_str() << std::endl;
 
     return 0;
 }

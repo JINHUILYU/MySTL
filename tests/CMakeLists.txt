@@ -13,3 +13,7 @@ add_test(NAME Iterator COMMAND test_iterator)
 add_executable(test_vector test_vector.cpp)
 target_link_libraries(test_vector PRIVATE mystl GTest::gtest_main)
 add_test(NAME Vector COMMAND test_vector)
+
+add_executable(test_string test_string.cpp)
+target_link_libraries(test_string PRIVATE mystl GTest::gtest_main)
+add_test(NAME String COMMAND test_string)
