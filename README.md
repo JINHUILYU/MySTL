@@ -61,7 +61,7 @@ ctest --test-dir build --output-on-failure
 MySTL 是 header-only 库，直接包含头文件即可使用：
 
 ```cpp
-#include <mystl/vector.h>
+#include "mystl/vector.h"
 #include <iostream>
 
 int main() {

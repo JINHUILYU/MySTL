@@ -89,6 +89,8 @@ namespace demo
         ~stack() {
             delete[] data_;
             data_ = nullptr;
+            size_ = 0;
+            capacity_ = 0;
         }
 
         // ==========================================================================
