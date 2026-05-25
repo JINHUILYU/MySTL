@@ -1,3 +1,4 @@
+#include <initializer_list>
 #include <iostream>
 #include <cassert>
 #include <new>      // placement new
@@ -10,6 +11,15 @@ namespace demo
     public:
         // 默认构造函数
         vector() : data_(nullptr), size_(0), capacity_(0) {}
+
+        // 初始化列表
+        vector(std::initializer_list<int> init) : size_(init.size()), capacity_(init.size()) {
+            data_ = new int[capacity_];
+            size_t i = 0;
+            for (int v : init) {
+                data_[i++] = v;
+            }
+        }
 
         // 带参数的构造函数
         vector(size_t count, int value = 0) : size_(count), capacity_(count) {

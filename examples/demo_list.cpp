@@ -1,3 +1,4 @@
+#include <initializer_list>
 #include <iostream>
 #include <cassert>
 #include <utility>  // std::move, std::swap
@@ -72,6 +73,11 @@ namespace demo
             sentinel_.prev = &sentinel_;
             sentinel_.next = &sentinel_;
             size_ = 0;
+        }
+
+        list(std::initializer_list<int> init) : list() {
+            for (int v : init)
+                push_back(v);
         }
 
         list(size_t count, int value = 0) : list() {
