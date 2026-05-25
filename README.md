@@ -13,13 +13,23 @@ MySTL/
 │   ├── utility.h            # move / forward / swap / pair
 │   ├── allocator.h          # 内存分配器
 │   ├── iterator.h           # 迭代器标签与 traits
-│   └── vector.h             # 动态数组容器
+│   ├── vector.h             # 动态数组容器
+│   ├── string.h             # 字符串
+│   └── list.h               # 双向链表
 ├── tests/
 │   ├── CMakeLists.txt
 │   ├── test_type_traits.cpp
 │   ├── test_allocator.cpp
 │   ├── test_iterator.cpp
-│   └── test_vector.cpp
+│   ├── test_vector.cpp
+│   └── test_string.cpp
+├── examples/
+│   ├── demo.cpp
+│   ├── demo_array.cpp
+│   ├── demo_list.cpp
+│   ├── demo_stack.cpp
+│   ├── demo_string.cpp
+│   └── demo_vector.cpp
 └── .clang-format
 ```
 
@@ -82,8 +92,16 @@ target_link_libraries(your_target PRIVATE mystl)
 
 ```bash
 cd examples
-g++ -std=c++17 -I ./include demo.cpp -o demo
+g++ -std=c++17 -I ../include demo.cpp -o demo
+
+# 或直接编译单个示例（示例文件自包含，无需链接）
+g++ -std=c++17 demo_array.cpp -o demo_array && ./demo_array
+g++ -std=c++17 demo_stack.cpp -o demo_stack && ./demo_stack
+g++ -std=c++17 demo_vector.cpp -o demo_vector && ./demo_vector
+g++ -std=c++17 demo_string.cpp -o demo_string && ./demo_string
+g++ -std=c++17 demo_list.cpp   -o demo_list   && ./demo_list
 ```
+
 
 ## 已实现组件
 
@@ -94,16 +112,19 @@ g++ -std=c++17 -I ./include demo.cpp -o demo
 | `allocator.h` | allocator\<T\>, allocator_traits | 完成 |
 | `iterator.h` | 五种迭代器标签, iterator_traits, reverse_iterator, advance/distance/next/prev | 完成 |
 | `vector.h` | 动态数组，含完整 CRUD、迭代器、移动语义优化 | 完成 |
+| `string.h` | basic_string, char_traits, 字符串操作 | 完成 |
+| `list.h` | 双向链表、模板化、分配器支持、reverse_iterator | 完成 |
 
-总测试数：**75** 个，全部通过。
+总测试数：**127** 个，全部通过。
 
 ## 开发路线图
 
-- [ ] string — 字符串
-- [ ] algorithm — 常用算法 (sort, find, copy 等)
-- [ ] list — 双向链表
-- [ ] deque — 双端队列
+- [x] string — 字符串
+- [x] list — 双向链表
+- [ ] array — 固定大小数组
 - [ ] stack / queue / priority_queue — 容器适配器
+- [ ] deque — 双端队列
+- [ ] algorithm — 常用算法 (sort, find, copy 等)
 - [ ] set / map — 红黑树容器
 - [ ] unordered_set / unordered_map — 哈希表容器
 - [ ] functional — 函数对象与 std::function
