@@ -6,6 +6,7 @@
 #include "allocator.h"
 #include "iterator.h"
 #include "vector.h"
+#include "list.h"
 #include "string.h"
 
 #endif  // MYSTL_H_
